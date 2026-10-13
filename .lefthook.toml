@@ -1,0 +1,8 @@
+[[remotes]]
+git_url = "https://github.com/imagegenius/.github"
+ref = "main"
+configs = ["lefthook.common.toml"]
+
+[pre-commit.commands.renovate-config-validator]
+glob = ["default.json", "*.json5"]
+run = "renovate-config-validator --strict --no-global {staged_files}"
