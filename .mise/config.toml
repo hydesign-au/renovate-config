@@ -1,6 +1,6 @@
 # https://mise.jdx.dev/configuration.html
 [tools]
-actionlint = "1.7.12"
+"aqua:jdx/jactionlint" = "2.3.0"
 lefthook = "2.2.2"
 node = "26.12.1"
 oxfmt = "0.74.0"
@@ -8,13 +8,17 @@ oxfmt = "0.74.0"
 # no-downgrade trust policy refuses the whole tree. It reaches us through
 # @yarnpkg/core, which requires ^3.2.2 — the floor, so no renovate version can
 # resolve past it. Drop the exclude once upstream publishes an attested release.
-"npm:renovate" = { version = "44.181.5", trust_policy_excludes = ["@yarnpkg/libzip"] }
+"npm:renovate" = { version = "44.181.5", trust_policy_excludes = [
+  "@yarnpkg/libzip",
+] }
 shellcheck = "0.11.0"
-zizmor = "1.31.1"
 
 [tasks."lint"]
 description = "Check JSON/JSON5, YAML, Markdown, and shell formatting"
-run = ["oxfmt --check .", "git ls-files -co --exclude-standard '*.sh' | xargs -r shellcheck"]
+run = [
+  "oxfmt --check .",
+  "git ls-files -co --exclude-standard '*.sh' | xargs -r shellcheck",
+]
 
 [tasks.validate]
 description = "Validate Renovate presets against the schema"
