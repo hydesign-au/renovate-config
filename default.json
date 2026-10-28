@@ -10,7 +10,6 @@
     "./groups.json5",
     "./labels.json5",
     "./semanticCommits.json5",
-    "./sharedActions.json5",
     ":automergePr",
     ":configMigration",
     ":dependencyDashboard",
